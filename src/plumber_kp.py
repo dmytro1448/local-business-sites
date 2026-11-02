@@ -32,7 +32,7 @@ cfg = {
     "callbar_label": "Викликати майстра",
     "callbar_alt": ("Ціни", "tsiny/"),
     "logo_text": "Кран і Ключ<small>сантехнік 24/7</small>",
-    "logo_svg": '<svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#d4321a"/><path d="M12 13h10a6 6 0 0 1 6 6v2h-5v-2a1 1 0 0 0-1-1H12z" fill="#fff"/><path d="M25.5 25c0 2-1.2 3.5-2.5 3.5S20.5 27 20.5 25s2.5-4.5 2.5-4.5 2.5 2.5 2.5 4.5z" fill="#ffd23f"/></svg>',
+    "logo_svg": '<svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#c42d16"/><path d="M12 13h10a6 6 0 0 1 6 6v2h-5v-2a1 1 0 0 0-1-1H12z" fill="#fff"/><path d="M25.5 25c0 2-1.2 3.5-2.5 3.5S20.5 27 20.5 25s2.5-4.5 2.5-4.5 2.5 2.5 2.5 4.5z" fill="#ffd23f"/></svg>',
 }
 layout = default_layout
 
@@ -283,7 +283,7 @@ JS = r"""
 })();
 """
 
-FAVICON = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#d4321a"/><path d="M12 13h10a6 6 0 0 1 6 6v2h-5v-2a1 1 0 0 0-1-1H12z" fill="#fff"/></svg>'
+FAVICON = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#c42d16"/><path d="M12 13h10a6 6 0 0 1 6 6v2h-5v-2a1 1 0 0 0-1-1H12z" fill="#fff"/></svg>'
 
 if __name__ == "__main__":
     build(cfg, pages(), layout, read(os.path.join(os.path.dirname(__file__), "plumber_kp.css")), JS, FAVICON)

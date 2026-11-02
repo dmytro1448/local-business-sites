@@ -1,5 +1,5 @@
 /* Метраж: папір + графіт + теракота, Playfair Display + IBM Plex Sans, редакційна сітка */
-:root{--bg:#f3ede4;--fg:#1c1a17;--muted:#5b554c;--accent:#a84a26;--accent-strong:#a84a26;--link:#8f3d1d;--paper:#ebe3d6;--dark:#1c1a17;--line:#d6ccbc;--radius-sm:2px;--font-head:"Playfair Display",Georgia,serif;--font-body:"IBM Plex Sans",system-ui,sans-serif;--nav-bg:#f3ede4;--input-bg:#fbf8f3;--max:1240px}
+:root{--bg:#f3ede4;--fg:#1c1a17;--muted:#5b554c;--accent:#9a4321;--accent-strong:#9a4321;--link:#8f3d1d;--paper:#ebe3d6;--dark:#1c1a17;--line:#d6ccbc;--radius-sm:2px;--font-head:"Playfair Display",Georgia,serif;--font-body:"IBM Plex Sans",system-ui,sans-serif;--nav-bg:#f3ede4;--input-bg:#fbf8f3;--max:1240px}
 h1{font-size:clamp(2.3rem,5.4vw,4.6rem);font-weight:700;letter-spacing:-.02em;line-height:1.04}
 h2{font-size:clamp(1.8rem,3.4vw,2.9rem);font-weight:600;letter-spacing:-.01em}
 h3{font-size:1.35rem;font-weight:600}

@@ -154,22 +154,24 @@ def render_page(cfg, page, layout):
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="{cfg['theme_color']}">
 <link rel="icon" href="{root}assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="{cfg['fonts']}">
-<link rel="stylesheet" href="{root}assets/style.css?v={cfg['version']}">
+{{preload}}
+<style>{{inline_css}}</style>
 {ld_html}
 </head>
 """
-    out = head + html.replace("{{root}}", root)
-    return out
+    out = head.replace("{inline_css}", cfg["_css"]).replace("{preload}", cfg["_preload"]) + html
+    return out.replace("{{root}}", root)
 
 
 def build(cfg, pages, layout, css, js, favicon):
     out_dir = os.path.join(ROOT, cfg["slug"])
     common_css = read(os.path.join(ROOT, "tools", "common.css"))
     common_js = read(os.path.join(ROOT, "tools", "common.js"))
-    write(os.path.join(out_dir, "assets", "style.css"), common_css + "\n" + css)
+    font_css, preload = self_host_fonts(cfg, out_dir)
+    full_css = minify_css(font_css + "\n" + common_css + "\n" + css)
+    write(os.path.join(out_dir, "assets", "style.css"), full_css.replace("{{root}}assets/", "../"))
+    cfg["_css"] = full_css
+    cfg["_preload"] = preload
     write(os.path.join(out_dir, "assets", "app.js"), common_js + "\n" + js)
     write(os.path.join(out_dir, "assets", "favicon.svg"), favicon)
     seen = set()
@@ -229,7 +231,7 @@ def default_layout(cfg, page, root, crumbs_html, body):
 <a class="skip" href="#main">Перейти до змісту</a>
 <header class="hdr">
   <div class="wrap hdr__in">
-    <a class="logo" href="{root}" aria-label="{escape(b['name'])}: на головну">{cfg['logo_svg']}<span>{cfg['logo_text']}</span></a>
+    <a class="logo" href="{root}">{cfg['logo_svg']}<span>{cfg['logo_text']}</span></a>
     <nav class="nav" id="site-nav" aria-label="Головне меню"><ul>{''.join(items)}</ul></nav>
     <a class="hdr__phone" href="tel:{b['phone']}">{PHONE_SVG}<span>{b['phone_display']}</span></a>
     <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false"><span></span><b class="sr-only">Меню</b></button>
@@ -263,3 +265,38 @@ def default_layout(cfg, page, root, crumbs_html, body):
 </body>
 </html>
 """
+
+
+def minify_css(css):
+    css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
+    css = re.sub(r"\s+", " ", css)
+    css = re.sub(r"\s*([{};,>])\s*", r"\1", css)
+    return css.replace(";}", "}").strip()
+
+
+def self_host_fonts(cfg, out_dir):
+    """Завантажує woff2 (кирилиця + латиниця) з Google Fonts у assets/fonts і повертає @font-face.
+    Так немає блокуючого запиту до сторонніх доменів, а головний шрифт можна підвантажити заздалегідь."""
+    import urllib.request
+    ua = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"
+    req = urllib.request.Request(cfg["fonts"], headers={"User-Agent": ua})
+    css = urllib.request.urlopen(req).read().decode()
+    out, seen, first = [], {}, None
+    os.makedirs(os.path.join(out_dir, "assets", "fonts"), exist_ok=True)
+    for subset, block in re.findall(r"/\* (\S+) \*/\s*(@font-face \{.*?\})", css, re.S):
+        if subset not in ("cyrillic", "latin"):
+            continue
+        url = re.search(r"url\((\S+?)\)", block).group(1)
+        fam = re.search(r"font-family: '([^']+)'", block).group(1)
+        if url not in seen:
+            name = re.sub(r"[^a-z0-9]+", "-", fam.lower()) + f"-{subset}-{len(seen)}.woff2"
+            path = os.path.join(out_dir, "assets", "fonts", name)
+            if not os.path.exists(path):
+                urllib.request.urlretrieve(url, path)
+            seen[url] = name
+        name = seen[url]
+        if subset == "cyrillic":
+            first = (first or []) + ([name] if name not in (first or []) else [])
+        out.append(block.replace(url, "{{root}}assets/fonts/" + name))
+    preload = "".join(f'<link rel="preload" href="{{{{root}}}}assets/fonts/{n}" as="font" type="font/woff2" crossorigin>' for n in (first or []))
+    return "\n".join(out), preload

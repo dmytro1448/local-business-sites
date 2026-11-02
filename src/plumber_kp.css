@@ -1,5 +1,5 @@
 /* Кран і Ключ: темно-синій + аварійний червоний + жовтий, Rubik */
-:root{--bg:#ffffff;--fg:#0b1f3a;--muted:#4a5a70;--accent:#d4321a;--accent-strong:#d4321a;--link:#b62a14;--navy:#0b1f3a;--navy2:#132d52;--yellow:#ffd23f;--grey:#f1f4f8;--line:#d9e0ea;--radius-sm:8px;--font-head:"Rubik",system-ui,sans-serif;--font-body:"Rubik",system-ui,sans-serif;--nav-bg:#fff}
+:root{--bg:#ffffff;--fg:#0b1f3a;--muted:#4a5a70;--accent:#c42d16;--accent-strong:#c42d16;--link:#b62a14;--navy:#0b1f3a;--navy2:#132d52;--yellow:#ffd23f;--grey:#f1f4f8;--line:#d9e0ea;--radius-sm:8px;--font-head:"Rubik",system-ui,sans-serif;--font-body:"Rubik",system-ui,sans-serif;--nav-bg:#fff}
 h1{font-size:clamp(2rem,4.6vw,3.4rem);font-weight:800;letter-spacing:-.02em}
 h2{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;letter-spacing:-.01em}
 h3{font-size:1.2rem;font-weight:700}
