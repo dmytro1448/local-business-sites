@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Емаль: блокова тема WordPress для стоматології</title>
+<meta name="description" content="Блокова FSE-тема WordPress для стоматологічної клініки у Хмельницькому: патерни, сторінки послуг і районів, Dentist JSON-LD. Відкривається в WordPress Playground.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://dmytro1448.github.io/local-business-sites/dental-khmelnytskyi/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Емаль: блокова тема WordPress для стоматології">
+<meta property="og:description" content="FSE-тема без Elementor: 11 сторінок, 21 патерн, локальне SEO. Демо в WordPress Playground.">
+<meta property="og:url" content="https://dmytro1448.github.io/local-business-sites/dental-khmelnytskyi/">
+<meta property="og:image" content="https://dmytro1448.github.io/local-business-sites/assets/shots/dental-khmelnytskyi.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='20' fill='%231d6b64'/%3E%3C/svg%3E">
+<style>
+@font-face{font-family:Lora;font-weight:400 700;font-display:swap;src:url(emal/assets/fonts/lora-cyrillic.woff2) format("woff2");unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:Lora;font-weight:400 700;font-display:swap;src:url(emal/assets/fonts/lora-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:Onest;font-weight:400 700;font-display:swap;src:url(emal/assets/fonts/onest-cyrillic.woff2) format("woff2");unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:Onest;font-weight:400 700;font-display:swap;src:url(emal/assets/fonts/onest-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+:root{--bg:#f7f3ed;--fg:#15302d;--muted:#4d625f;--pri:#1d6b64;--mint:#dcefe9;--line:#dcd5c9}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 1.0625rem/1.6 Onest,system-ui,sans-serif}
+a{color:var(--pri)}
+:focus-visible{outline:3px solid #e2725b;outline-offset:3px}
+.wrap{width:min(100% - 2rem,1100px);margin-inline:auto}
+header{padding:1.25rem 0;border-bottom:1px solid var(--line)}
+header a{font-weight:500}
+.hero{padding:clamp(2.5rem,6vw,4.5rem) 0;display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(2rem,4vw,3.5rem);align-items:center}
+h1,h2{font-family:Lora,Georgia,serif;font-weight:600;line-height:1.12;letter-spacing:-.01em}
+h1{font-size:clamp(2rem,4.5vw,3.3rem);margin:0 0 1rem}
+h2{font-size:clamp(1.5rem,3vw,2.1rem);margin:0 0 1rem}
+.eyebrow{font-size:.8rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--pri);margin:0 0 .75rem}
+.lead{font-size:1.15rem;color:var(--muted)}
+.btns{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}
+.btn{display:inline-flex;align-items:center;min-height:3rem;padding:.7rem 1.4rem;border-radius:999px;background:var(--pri);color:#fff;text-decoration:none;font-weight:600}
+.btn--ghost{background:transparent;color:var(--pri);border:2px solid var(--pri)}
+.shot{border-radius:18px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(21,48,45,.45);border:1px solid var(--line);display:block}
+.shot img{display:block;width:100%;height:auto}
+.small{font-size:.9rem;color:var(--muted)}
+section{padding:clamp(2rem,5vw,3.5rem) 0;border-top:1px solid var(--line)}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;list-style:none;padding:0;margin:0}
+.cols li{background:#fff;border-radius:16px;padding:1.2rem 1.3rem;box-shadow:0 0 0 1px var(--line)}
+.cols b{display:block;margin-bottom:.25rem}
+.cols span{color:var(--muted);font-size:.95rem}
+pre{background:#15302d;color:#dcefe9;padding:1.25rem;border-radius:14px;overflow-x:auto;font-size:.85rem;line-height:1.5}
+footer{padding:2rem 0 3rem;color:var(--muted);font-size:.92rem;border-top:1px solid var(--line)}
+@media (max-width:860px){.hero{grid-template-columns:1fr}.cols{grid-template-columns:1fr 1fr}}
+@media (max-width:540px){.cols{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a href="../">← Усі роботи Дмитра Козіна</a></div></header>
+<main class="wrap">
+  <div class="hero">
+    <div>
+      <p class="eyebrow">Стоматологія · Хмельницький · WordPress</p>
+      <h1>«Емаль»: блокова тема WordPress без конструкторів</h1>
+      <p class="lead">Сайт стоматологічної клініки, який адміністратор редагує в стандартному редакторі WordPress. Вся верстка в theme.json і патернах, без Elementor і без жодного плагіна.</p>
+      <div class="btns">
+        <a class="btn" href="https://playground.wordpress.net/?blueprint-url=https://dmytro1448.github.io/local-business-sites/dental-khmelnytskyi/blueprint.json">Відкрити в WordPress Playground</a>
+        <a class="btn btn--ghost" href="emal.zip" download>Завантажити тему (zip)</a>
+      </div>
+      <p class="small">Playground запускає WordPress прямо в браузері: встановлює тему, створює 11 сторінок і меню. Перше завантаження 15-30 секунд. Ви одразу залогінені як адміністратор і можете відкрити редактор сайту.</p>
+    </div>
+    <a class="shot" href="https://playground.wordpress.net/?blueprint-url=https://dmytro1448.github.io/local-business-sites/dental-khmelnytskyi/blueprint.json" aria-label="Відкрити демо в WordPress Playground"><img src="../assets/shots/dental-khmelnytskyi.jpg" width="960" height="600" alt="Головна сторінка теми Емаль у WordPress"></a>
+  </div>
+
+  <section aria-labelledby="in-h">
+    <h2 id="in-h">Що всередині теми</h2>
+    <ul class="cols">
+      <li><b>theme.json</b><span>Палітра, типографіка з fluid-розмірами, відступи, стилі кнопок і посилань. Локальні шрифти Lora і Onest.</span></li>
+      <li><b>Шаблони і частини</b><span>front-page, page, page-wide, index, single, 404; шапка і футер як патерни з динамічними посиланнями.</span></li>
+      <li><b>21 патерн</b><span>Перший екран, переваги, послуги, лікарі, ціни, FAQ, запис, заклик до дії і готові сторінки.</span></li>
+      <li><b>Дані в одному місці</b><span>NAP, графік, ціни і FAQ у inc/data.php. Міняєте телефон один раз, і він оновлюється всюди, разом зі схемою.</span></li>
+      <li><b>Локальне SEO без плагіна</b><span>Свої title і description для кожної сторінки, Open Graph, Dentist JSON-LD, BreadcrumbList, FAQPage.</span></li>
+      <li><b>Запис онлайн</b><span>Форма з вибором послуги, лікаря і часу, перевіркою полів і станом успіху. Закріплена кнопка дзвінка на мобільному.</span></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="pg-h">
+    <h2 id="pg-h">Сторінки демо</h2>
+    <p>Головна · Послуги (Імплантація, Лікування карієсу, Професійна гігієна) · Лікарі · Ціни · Райони (Виставка, Озерна) · Контакти. Сторінки створює функція <code>emal_demo_setup()</code> під час активації теми, тому та сама тема розгортається і на звичайному хостингу.</p>
+  </section>
+
+  <section aria-labelledby="bp-h">
+    <h2 id="bp-h">Blueprint для Playground</h2>
+    <pre><code>{
+  "landingPage": "/",
+  "steps": [
+    { "step": "login", "username": "admin" },
+    { "step": "installTheme",
+      "themeData": { "resource": "url", "url": ".../dental-khmelnytskyi/emal.zip" },
+      "options": { "activate": true } },
+    { "step": "runPHP",
+      "code": "&lt;?php require_once '/wordpress/wp-load.php'; wp_set_current_user(1); emal_demo_setup();" }
+  ]
+}</code></pre>
+    <p class="small">Повний файл: <a href="blueprint.json">blueprint.json</a>. Код теми: <a href="https://github.com/dmytro1448/local-business-sites/tree/main/dental-khmelnytskyi/emal">GitHub</a>.</p>
+  </section>
+</main>
+<footer><div class="wrap">Демо-концепт для портфоліо, бізнес вигаданий. Лікарі, телефон і контакти фіктивні.</div></footer>
+</body>
+</html>
