@@ -1,0 +1,139 @@
+/* Емаль: компонентні стилі поверх theme.json */
+:root{--emal-radius:22px;--emal-shadow:0 24px 50px -30px rgba(21,48,45,.35)}
+body{-webkit-text-size-adjust:100%}
+.emal-skip{position:absolute;left:-9999px;top:0;z-index:999;background:#15302d;color:#fff;padding:.75rem 1rem}
+.emal-skip:focus{left:1rem;top:1rem}
+:where(a,button,input,select,summary):focus-visible{outline:3px solid var(--wp--preset--color--coral);outline-offset:3px}
+
+/* header */
+.emal-hdr{position:sticky;top:0;z-index:50}
+.admin-bar .emal-hdr{top:var(--wp-admin--admin-bar--height,32px)}
+@media (max-width:600px){.admin-bar .emal-hdr{top:0}}
+.emal-header{background:rgba(247,243,237,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--wp--preset--color--line);padding-top:.6rem;padding-bottom:.6rem}
+.emal-header__in{gap:1.5rem;min-height:3.4rem}
+.emal-logo{display:flex;align-items:center;gap:.65rem;text-decoration:none;color:var(--wp--preset--color--contrast);flex:none}
+.emal-logo span{display:flex;flex-direction:column;font:600 1.45rem/1 var(--wp--preset--font-family--heading)}
+.emal-logo small{font:500 .72rem/1.4 var(--wp--preset--font-family--body);color:var(--wp--preset--color--muted);letter-spacing:.02em}
+.emal-nav{margin-left:auto}
+.emal-nav .wp-block-navigation-item__content{padding:.5rem .35rem}
+.emal-nav .wp-block-navigation__responsive-container-open{width:2.9rem;height:2.9rem;display:grid;place-items:center;border:1px solid var(--wp--preset--color--line);border-radius:12px}
+.emal-header__cta .wp-block-button__link{padding:.65rem 1.1rem;font-size:.95rem;white-space:nowrap}
+@media (max-width:781px){.emal-header__cta{display:none}}
+
+/* shared */
+.emal-eyebrow{font-size:.8rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--wp--preset--color--primary);margin-bottom:.5rem}
+.emal-lead{font-size:1.18rem;color:var(--wp--preset--color--muted);max-width:36rem}
+.emal-small{font-size:.88rem;color:var(--wp--preset--color--muted)}
+.emal-sec{padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)}
+.emal-sec--mint{background:var(--wp--preset--color--mint)}
+.emal-sec--deep{background:var(--wp--preset--color--primary-dark);color:#fff}
+.emal-sec--deep a{color:#bfe7dd}
+.emal-sec--deep h2{color:#fff}
+.wp-block-button.is-style-outline>.wp-block-button__link{border:2px solid currentColor;background:transparent;color:var(--wp--preset--color--primary);padding:calc(.85rem - 2px) calc(1.6rem - 2px)}
+.wp-block-button.is-style-outline>.wp-block-button__link:hover{background:var(--wp--preset--color--primary);color:#fff}
+
+/* hero */
+.emal-hero{padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--60);background:radial-gradient(700px 420px at 92% 30%,#e7f4f0,transparent 70%)}
+.emal-hero h1{margin-top:.25rem}
+.emal-hero__art{position:relative;max-width:460px;margin-inline:auto}
+.emal-hero__art svg{width:100%;height:auto;display:block}
+.emal-chip{position:absolute;background:#fff;border-radius:16px;padding:.7rem 1rem;box-shadow:var(--emal-shadow);font-size:.9rem;margin:0;line-height:1.3}
+.emal-chip b{display:block;font:600 1.25rem var(--wp--preset--font-family--heading);color:var(--wp--preset--color--primary)}
+.emal-chip--a{left:0;top:18%}
+.emal-chip--b{right:0;bottom:10%}
+@media (max-width:781px){.emal-hero__art{max-width:340px}.emal-chip{font-size:.82rem}}
+
+/* trust */
+.emal-trust{padding-top:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);border-block:1px solid var(--wp--preset--color--line)}
+.emal-trust h3{font-size:1.1rem;margin-bottom:.25rem}
+.emal-trust p{color:var(--wp--preset--color--muted);margin:0;font-size:.97rem}
+.emal-trust .wp-block-column{border-left:3px solid var(--wp--preset--color--coral);padding-left:1rem}
+
+/* cards */
+.emal-cards{gap:1.25rem;margin-top:1.75rem}
+.emal-card{background:var(--wp--preset--color--surface);border-radius:var(--emal-radius);padding:1.75rem;box-shadow:0 0 0 1px var(--wp--preset--color--line);position:relative;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.emal-cards .emal-card:hover{transform:translateY(-3px);box-shadow:0 0 0 1px var(--wp--preset--color--primary),var(--emal-shadow)}
+.emal-card h3 a{color:var(--wp--preset--color--contrast);text-decoration:none}
+.emal-cards .emal-card h3 a::after{content:"";position:absolute;inset:0;border-radius:inherit}
+.emal-card p{color:var(--wp--preset--color--muted)}
+.emal-card__price{margin-top:auto!important;font-weight:700;color:var(--wp--preset--color--primary)!important}
+
+/* doctors */
+.emal-docs{gap:1.25rem;margin-top:1.75rem}
+.emal-doc{background:#fff;border-radius:var(--emal-radius);padding:1.5rem}
+.emal-doc__ava{width:84px;height:84px;margin-bottom:.75rem}
+.emal-doc h3{margin:0 0 .25rem}
+.emal-doc__role{color:var(--wp--preset--color--primary);font-weight:600;font-size:.95rem;margin:0 0 .5rem}
+.emal-doc p:last-child{color:var(--wp--preset--color--muted);font-size:.95rem;margin:0}
+
+/* prices */
+.emal-price table{border-collapse:collapse;width:100%}
+.emal-price td{border:0;border-bottom:1px dashed var(--wp--preset--color--line);padding:.75rem 0;vertical-align:top}
+.emal-price td:last-child{text-align:right;font-weight:600;white-space:nowrap;padding-left:1rem;width:9.5rem}
+.emal-price{margin:0 0 1rem}
+.emal-prices{display:grid;grid-template-columns:1fr 1fr;gap:2rem 3rem}
+.emal-pricecat h3{color:var(--wp--preset--color--primary);font-size:1.15rem}
+@media (max-width:781px){.emal-prices{grid-template-columns:1fr}}
+.emal-split{gap:3rem}
+
+/* faq */
+.emal-sec--faq{padding-top:var(--wp--preset--spacing--50)}
+.emal-faq summary{cursor:pointer;font-weight:600;font-size:1.06rem;list-style:none;position:relative;padding-right:2rem}
+.emal-faq summary::-webkit-details-marker{display:none}
+.emal-faq summary::after{content:"+";position:absolute;right:.25rem;top:-.1rem;font-size:1.5rem;color:var(--wp--preset--color--primary)}
+.emal-faq[open] summary::after{content:"−"}
+.emal-faq p{color:var(--wp--preset--color--muted);margin-top:.75rem}
+.emal-faq-wrap{padding-top:var(--wp--preset--spacing--50)}
+
+/* inner pages */
+.emal-phero .emal-lead p,.emal-phero .wp-block-post-excerpt__excerpt{color:var(--wp--preset--color--muted);max-width:44rem;margin:0}
+.emal-crumbs ol{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:.35rem;font-size:.9rem;color:var(--wp--preset--color--muted)}
+.emal-crumbs li+li::before{content:"/";margin-right:.35rem;opacity:.6}
+.emal-crumbs a{color:inherit}
+.emal-article{padding-top:var(--wp--preset--spacing--50);gap:3rem}
+.emal-prose h2{font-size:1.6rem;margin-top:2rem}
+.emal-prose h2:first-child{margin-top:0}
+.emal-narrow{padding-top:var(--wp--preset--spacing--50)}
+.emal-card--sticky{position:sticky;top:6rem}
+.emal-areas{margin-bottom:var(--wp--preset--spacing--50)}
+.emal-cta{background:var(--wp--preset--color--mint);border-radius:var(--emal-radius);padding:clamp(1.5rem,4vw,2.75rem)!important;margin-top:var(--wp--preset--spacing--50)!important;margin-bottom:var(--wp--preset--spacing--60)!important;max-width:1200px;margin-inline:auto!important}
+.emal-cta h3{font-size:var(--wp--preset--font-size--x-large)}
+.emal-map{background:repeating-linear-gradient(45deg,#e9e3d9 0 12px,#efe9df 12px 24px);border-radius:var(--emal-radius);min-height:220px;display:grid;place-items:center;padding:1.5rem;text-align:center;color:var(--wp--preset--color--muted);margin-bottom:var(--wp--preset--spacing--60)}
+
+/* form */
+.emal-form{background:#fff;color:var(--wp--preset--color--contrast);border-radius:var(--emal-radius);padding:clamp(1.25rem,3vw,2rem)}
+.emal-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.emal-field{display:grid;gap:.35rem;margin:0 0 1rem}
+.emal-field label{font-weight:600;font-size:.95rem}
+.emal-field input,.emal-field select{min-height:3rem;border:1.5px solid var(--wp--preset--color--line);border-radius:12px;padding:.6rem .85rem;font:inherit;background:var(--wp--preset--color--base);color:inherit;width:100%;box-sizing:border-box}
+.emal-err{display:none;color:#b3261e;font-size:.88rem;font-weight:600}
+.is-invalid .emal-err{display:block}
+.is-invalid input{border-color:#b3261e}
+.emal-check{display:flex;gap:.6rem;align-items:flex-start;font-size:.92rem;margin:0 0 1.25rem}
+.emal-check input{width:1.2rem;height:1.2rem;margin-top:.2rem;accent-color:var(--wp--preset--color--primary);flex:none}
+.emal-check.is-invalid label{color:#b3261e}
+.emal-submit{background:var(--wp--preset--color--primary);color:#fff;border:0;border-radius:999px;padding:.95rem 2rem;font:600 1rem var(--wp--preset--font-family--body);cursor:pointer;min-height:3.2rem}
+.emal-submit:hover{background:var(--wp--preset--color--primary-dark)}
+.emal-ok{display:none;margin:0;padding:1.25rem;border-radius:14px;background:#e3f4ec;color:#14532d;font-weight:600}
+.emal-form.is-sent .emal-form__body{display:none}
+.emal-form.is-sent .emal-ok{display:block}
+.emal-sec--deep .emal-form a{color:var(--wp--preset--color--primary)}
+@media (max-width:600px){.emal-row{grid-template-columns:1fr;gap:0}}
+
+/* footer */
+.emal-footer{background:var(--wp--preset--color--contrast);color:#c4d3d0;padding-top:var(--wp--preset--spacing--50);padding-bottom:1.5rem;font-size:.95rem;margin-top:0}
+.emal-footer a{color:#fff}
+.emal-footer__name{font:600 1.4rem var(--wp--preset--font-family--heading);color:#fff}
+.emal-footer__h{color:#fff;font-weight:600;text-transform:uppercase;letter-spacing:.1em;font-size:.8rem;margin-bottom:.4rem}
+.emal-footer__note{border-top:1px solid #2d4a46;padding-top:1.25rem;margin-top:2rem;font-size:.82rem;opacity:.85}
+
+/* mobile call bar */
+.emal-callbar{display:none}
+@media (max-width:781px){
+  body{padding-bottom:4.75rem}
+  .emal-callbar{display:flex;gap:.5rem;position:fixed;left:.75rem;right:.75rem;bottom:.75rem;z-index:60}
+  .emal-callbar a{flex:1;display:flex;align-items:center;justify-content:center;min-height:3.4rem;border-radius:999px;font-weight:700;text-decoration:none;box-shadow:0 10px 25px -8px rgba(0,0,0,.45)}
+  .emal-callbar__call{background:var(--wp--preset--color--primary);color:#fff}
+  .emal-callbar__book{background:#fff;color:var(--wp--preset--color--primary);border:2px solid var(--wp--preset--color--primary)}
+  .emal-card--sticky{position:static}
+}

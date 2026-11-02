@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Дмитро Козін: сайти для локального бізнесу</title>
+<meta name="description" content="Портфоліо Дмитра Козіна: п'ять демо-сайтів для локальних сервісних бізнесів з калькуляторами, сторінками послуг і районів, LocalBusiness-схемою і блоковою темою WordPress.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://dmytro1448.github.io/local-business-sites/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Дмитро Козін: сайти для локального бізнесу">
+<meta property="og:description" content="П'ять демо-сайтів для локального бізнесу: СТО, клінінг, сантехнік, ремонт квартир і стоматологія на WordPress.">
+<meta property="og:url" content="https://dmytro1448.github.io/local-business-sites/">
+<meta property="og:image" content="https://dmytro1448.github.io/local-business-sites/assets/shots/sto-lviv.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23171717'/%3E%3Ctext x='20' y='27' font-size='18' font-family='sans-serif' font-weight='700' fill='%23fff' text-anchor='middle'%3EДК%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#fafaf8;--fg:#171717;--muted:#5c5c58;--line:#e4e2dc;--card:#fff;--accent:#2f5bd3;--chip:#f0eee8}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 1.0625rem/1.6 Onest,system-ui,sans-serif}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{width:min(100% - 2rem,1160px);margin-inline:auto}
+header{padding:clamp(2.5rem,7vw,5.5rem) 0 2rem}
+.me{display:flex;align-items:center;gap:.75rem;font-weight:500;color:var(--muted);margin:0 0 1.5rem}
+.me b{width:2.6rem;height:2.6rem;border-radius:50%;background:var(--fg);color:#fff;display:grid;place-items:center;font-size:.95rem}
+h1{font-size:clamp(2.1rem,5.4vw,4rem);line-height:1.05;letter-spacing:-.03em;margin:0 0 1.25rem;max-width:16ch}
+.lead{font-size:clamp(1.1rem,2vw,1.3rem);color:var(--muted);max-width:44rem;margin:0}
+.note{margin:1.75rem 0 0;padding:1rem 1.25rem;border-left:4px solid var(--fg);background:var(--chip);max-width:44rem;font-size:.98rem}
+.links{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;margin-top:1.5rem;font-weight:500}
+h2{font-size:clamp(1.5rem,3vw,2.2rem);letter-spacing:-.02em;line-height:1.15;margin:0 0 1.5rem}
+section{padding:clamp(2.5rem,5vw,4rem) 0}
+.grid{display:grid;gap:clamp(2rem,4vw,3rem)}
+.card{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(1.25rem,3vw,2.5rem);align-items:start;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:clamp(1rem,2.5vw,1.5rem)}
+.card:nth-child(even) .shot{order:2}
+.shot{display:block;border-radius:12px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/10;background:var(--chip)}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .4s}
+.shot:hover img{transform:scale(1.02)}
+.tag{display:inline-block;font-size:.8rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 .5rem}
+.card h3{font-size:clamp(1.35rem,2.4vw,1.75rem);letter-spacing:-.015em;line-height:1.2;margin:0 0 .75rem}
+.card p{margin:0 0 .9rem;color:#33332f}
+.card ul{margin:0 0 1rem;padding-left:1.1rem;color:#33332f}
+.card li{margin-bottom:.3rem}
+.stack{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;padding:0!important;margin:0 0 1.25rem!important}
+.stack li{background:var(--chip);border-radius:999px;padding:.25rem .7rem;font-size:.82rem;margin:0!important}
+.btns{display:flex;flex-wrap:wrap;gap:.6rem}
+.btn{display:inline-flex;align-items:center;min-height:2.9rem;padding:.6rem 1.15rem;border-radius:999px;background:var(--fg);color:#fff;text-decoration:none;font-weight:500}
+.btn--ghost{background:transparent;color:var(--fg);border:1.5px solid var(--fg)}
+.btn:hover{opacity:.88}
+@media (max-width:860px){.card{grid-template-columns:1fr}.card:nth-child(even) .shot{order:0}}
+.checks{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;list-style:none;padding:0;margin:0}
+.checks li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.2rem}
+.checks b{display:block;margin-bottom:.2rem}
+.checks span{color:var(--muted);font-size:.95rem}
+@media (max-width:860px){.checks{grid-template-columns:1fr 1fr}}
+@media (max-width:540px){.checks{grid-template-columns:1fr}}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(5,1fr);gap:1rem}
+.steps li{counter-increment:s;border-top:2px solid var(--fg);padding-top:.9rem}
+.steps li::before{content:counter(s);font-weight:700;font-size:1.4rem;display:block}
+.steps b{display:block}
+.steps span{color:var(--muted);font-size:.95rem}
+@media (max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:540px){.steps{grid-template-columns:1fr}}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:560px;background:var(--card);border-radius:14px;overflow:hidden}
+th,td{text-align:left;padding:.8rem 1rem;border-bottom:1px solid var(--line)}
+th{font-weight:500;color:var(--muted);font-size:.9rem}
+td.n{font-variant-numeric:tabular-nums;font-weight:700}
+footer{padding:2.5rem 0 3rem;border-top:1px solid var(--line);color:var(--muted);font-size:.95rem}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <p class="me"><b>ДК</b> Дмитро Козін · веброзробка й автоматизація</p>
+  <h1>Сайти для локального бізнесу</h1>
+  <p class="lead">П'ять демо-проєктів для сервісних бізнесів у різних містах України: СТО, клінінг, аварійний сантехнік, ремонт квартир і стоматологія. Кожен зібраний під локальний пошук і дзвінки з телефону: сторінки послуг і районів, калькулятори, розмітка LocalBusiness, швидке завантаження.</p>
+  <p class="note"><b>Чесно про проєкти.</b> Усі п'ять бізнесів вигадані: це навчальні демо-концепти для портфоліо, без реальних клієнтів. Телефони й адреси фіктивні, сайти закриті від індексації.</p>
+  <nav class="links" aria-label="Посилання"><a href="#roboty">Роботи</a><a href="#standart">Що є на кожному сайті</a><a href="#perevirka">Результати перевірки</a><a href="https://github.com/dmytro1448/local-business-sites">Код на GitHub</a><a href="https://www.linkedin.com/in/dmytro-kozin-29b958380/">LinkedIn</a></nav>
+</header>
+
+<main id="main">
+<section class="wrap" id="roboty" aria-labelledby="w-h">
+  <h2 id="w-h">Роботи</h2>
+  <div class="grid">
+
+    <article class="card">
+      <a class="shot" href="sto-lviv/" aria-label="Відкрити сайт СТО «Бруківка Сервіс»"><img src="assets/shots/sto-lviv.jpg" width="960" height="600" alt="Головна сторінка сайту СТО у Львові з калькулятором вартості ТО" loading="lazy" decoding="async"></a>
+      <div>
+        <p class="tag">СТО · Львів · статичний сайт</p>
+        <h3>«Бруківка Сервіс»: автосервіс із калькулятором ТО</h3>
+        <p>Завдання: сайт для незалежної СТО, щоб водії бачили ціну робіт до приїзду і записувались онлайн.</p>
+        <ul>
+          <li>Калькулятор: клас авто × набір робіт, готові пакети, час на підйомнику, передача розрахунку у форму запису</li>
+          <li>3 сторінки послуг, 2 сторінки районів (Сихів, Левандівка) з маршрутами і локальними деталями</li>
+          <li>AutoRepair JSON-LD, FAQPage, BreadcrumbList, блок під відгуки з Google-профілю</li>
+        </ul>
+        <ul class="stack"><li>HTML</li><li>CSS</li><li>Vanilla JS</li><li>Python-генератор</li><li>7 сторінок</li></ul>
+        <div class="btns"><a class="btn" href="sto-lviv/">Відкрити сайт</a></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <a class="shot" href="cleaning-dnipro/" aria-label="Відкрити сайт клінінгу «Ясно»"><img src="assets/shots/cleaning-dnipro.jpg" width="960" height="600" alt="Головна сторінка сайту клінінгу в Дніпрі з калькулятором прибирання" loading="lazy" decoding="async"></a>
+      <div>
+        <p class="tag">Клінінг · Дніпро · статичний сайт</p>
+        <h3>«Ясно Клінінг»: ціна прибирання на першому екрані</h3>
+        <p>Завдання: клієнт хоче знати ціну одразу, тому калькулятор винесений у перший екран.</p>
+        <ul>
+          <li>Калькулятор: площа, тип прибирання, додаткові послуги з лічильниками, еко-засоби, регулярність зі знижкою, склад бригади й тривалість</li>
+          <li>Чек-лист у вкладках з клавіатурною навігацією, 6 питань FAQ з розміткою FAQPage</li>
+          <li>Сторінки районів: Соборний і Лівий берег з особливостями забудови</li>
+        </ul>
+        <ul class="stack"><li>HTML</li><li>CSS</li><li>Vanilla JS</li><li>ARIA tabs</li><li>7 сторінок</li></ul>
+        <div class="btns"><a class="btn" href="cleaning-dnipro/">Відкрити сайт</a></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <a class="shot" href="plumber-kamianets/" aria-label="Відкрити сайт сантехніка «Кран і Ключ»"><img src="assets/shots/plumber-kamianets.jpg" width="960" height="600" alt="Головна сторінка сайту аварійного сантехніка в Кам'янці-Подільському" loading="lazy" decoding="async"></a>
+      <div>
+        <p class="tag">Сантехнік · Кам'янець-Подільський · статичний сайт</p>
+        <h3>«Кран і Ключ»: аварійний виклик за один дотик</h3>
+        <p>Завдання: людина з протіканням має подзвонити за 5 секунд, а не читати сайт.</p>
+        <ul>
+          <li>Кнопка дзвінка в шапці, у першому екрані і закріплена знизу на телефоні; жовта смуга «що робити зараз»</li>
+          <li>Віджет «Коли приїде майстер»: район → час приїзду, нічний тариф за поточним часом</li>
+          <li>Прайс з пошуком, сторінки Старого міста і Нового плану з реальною специфікою забудови</li>
+        </ul>
+        <ul class="stack"><li>HTML</li><li>CSS</li><li>Vanilla JS</li><li>Plumber schema</li><li>8 сторінок</li></ul>
+        <div class="btns"><a class="btn" href="plumber-kamianets/">Відкрити сайт</a></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <a class="shot" href="remont-kyiv/" aria-label="Відкрити сайт студії ремонту «Метраж»"><img src="assets/shots/remont-kyiv.jpg" width="960" height="600" alt="Головна сторінка сайту ремонту квартир у Києві з порівнянням до і після" loading="lazy" decoding="async"></a>
+      <div>
+        <p class="tag">Ремонт квартир · Київ · статичний сайт</p>
+        <h3>«Метраж»: кейси до/після і кошторис зі строком</h3>
+        <p>Завдання: показати результат робіт і дати чесний орієнтир по бюджету і термінах.</p>
+        <ul>
+          <li>Порівняння «до/після» з повзунком, доступне з клавіатури, ілюстрації в SVG без важких фото</li>
+          <li>Калькулятор: площа, тип ремонту, житло, санвузли → вартість робіт, матеріалів, строк і розподіл по етапах</li>
+          <li>Сторінка кейсів з задачею, рішенням, площею, строком і бюджетом; райони Оболонь і Позняки</li>
+        </ul>
+        <ul class="stack"><li>HTML</li><li>CSS</li><li>Vanilla JS</li><li>SVG</li><li>8 сторінок</li></ul>
+        <div class="btns"><a class="btn" href="remont-kyiv/">Відкрити сайт</a></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <a class="shot" href="dental-khmelnytskyi/" aria-label="Про тему WordPress для стоматології «Емаль»"><img src="assets/shots/dental-khmelnytskyi.jpg" width="960" height="600" alt="Головна сторінка WordPress-сайту стоматології у Хмельницькому" loading="lazy" decoding="async"></a>
+      <div>
+        <p class="tag">Стоматологія · Хмельницький · WordPress</p>
+        <h3>«Емаль»: блокова тема WordPress без Elementor</h3>
+        <p>Завдання: сайт клініки, який адміністратор може редагувати сам, але без важкого конструктора.</p>
+        <ul>
+          <li>FSE-тема: theme.json, шаблони, 20 патернів, локальні шрифти, жодного плагіна</li>
+          <li>11 сторінок: послуги, лікарі, ціни, райони, контакти з формою запису; дані клініки в одному PHP-файлі</li>
+          <li>Dentist JSON-LD, BreadcrumbList, FAQPage з тих самих даних, що й блоки FAQ; title і description без SEO-плагіна</li>
+        </ul>
+        <ul class="stack"><li>WordPress FSE</li><li>theme.json</li><li>PHP</li><li>Block patterns</li><li>Playground</li></ul>
+        <div class="btns"><a class="btn" href="https://playground.wordpress.net/?blueprint-url=https://dmytro1448.github.io/local-business-sites/dental-khmelnytskyi/blueprint.json">Відкрити в WordPress Playground</a><a class="btn btn--ghost" href="dental-khmelnytskyi/">Про тему</a></div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="wrap" id="standart" aria-labelledby="s-h">
+  <h2 id="s-h">Що є на кожному сайті</h2>
+  <ul class="checks">
+    <li><b>Сторінки послуг і районів</b><span>Окрема сторінка під кожен запит «послуга + місто/район», з унікальним текстом, а не заміною назви.</span></li>
+    <li><b>LocalBusiness-розмітка</b><span>Підтип бізнесу, адреса, графік, areaServed, BreadcrumbList і FAQPage.</span></li>
+    <li><b>Однаковий NAP</b><span>Назва, адреса, телефон збігаються в шапці, футері й розмітці, як у Google-профілі.</span></li>
+    <li><b>Дзвінок з телефону</b><span>Закріплена кнопка дзвінка внизу екрана на мобільному, tel:-посилання всюди.</span></li>
+    <li><b>Форма заявки</b><span>Перевірка полів, зрозумілі помилки, стан успіху. У демо нікуди не відправляє.</span></li>
+    <li><b>Швидкість</b><span>Без фреймворків і конструкторів: SVG замість фото, мінімум JS, шрифти з display=swap.</span></li>
+    <li><b>Доступність</b><span>Контраст, видимий фокус, skip-link, aria для меню, вкладок і живих підсумків калькулятора.</span></li>
+    <li><b>Технічне SEO</b><span>Унікальні title і description, canonical, Open Graph, sitemap.xml, robots.txt.</span></li>
+    <li><b>Окремий стиль</b><span>Своя палітра, шрифти й композиція під кожну нішу, без спільного шаблону.</span></li>
+  </ul>
+</section>
+
+<section class="wrap" aria-labelledby="p-h">
+  <h2 id="p-h">Як я працюю над таким сайтом</h2>
+  <ol class="steps">
+    <li><b>Розбір ніші</b><span>Що шукають клієнти, які запити по районах, що змушує подзвонити.</span></li>
+    <li><b>Структура</b><span>Карта сторінок під послуги й локації, перелінковка, розмітка.</span></li>
+    <li><b>Тексти й інструменти</b><span>Живі тексти без «води», калькулятор або віджет під головне питання клієнта.</span></li>
+    <li><b>Верстка</b><span>Мобільна версія першою, потім десктоп. Перевірка на 375 і 1440 px.</span></li>
+    <li><b>Перевірка</b><span>Lighthouse, валідність розмітки, клавіатурна навігація, швидкість.</span></li>
+  </ol>
+</section>
+
+<section class="wrap" id="perevirka" aria-labelledby="l-h">
+  <h2 id="l-h">Результати перевірки Lighthouse</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Сайт</th><th>Performance (mobile)</th><th>Accessibility</th><th>Best Practices</th><th>SEO*</th></tr></thead>
+    <tbody id="lh-rows">LH_ROWS</tbody>
+  </table></div>
+  <p style="color:var(--muted);font-size:.92rem;margin-top:.75rem">LH_NOTE</p>
+</section>
+</main>
+
+<footer class="wrap">
+  <p>Дмитро Козін · <a href="https://github.com/dmytro1448/local-business-sites">github.com/dmytro1448/local-business-sites</a> · <a href="https://www.linkedin.com/in/dmytro-kozin-29b958380/">LinkedIn</a></p>
+  <p>Усі бізнеси на цій сторінці вигадані й створені як демо-концепти для портфоліо.</p>
+</footer>
+</body>
+</html>

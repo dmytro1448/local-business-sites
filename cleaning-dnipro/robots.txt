@@ -1,0 +1,4 @@
+# Демо-концепт: сайт закрито від індексації мета-тегом noindex
+User-agent: *
+Allow: /
+Sitemap: https://dmytro1448.github.io/local-business-sites/cleaning-dnipro/sitemap.xml
