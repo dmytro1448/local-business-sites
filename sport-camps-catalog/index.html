@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Каталог сборов: пример базы</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--fg:#37352f;--mute:#787774;--line:#e9e9e7;--hover:#f7f7f5;--side:#fbfbfa;
+--green:#dbeddb;--greenT:#1c3829;--yel:#fdecc8;--yelT:#402c1b;--red:#ffe2dd;--redT:#5d1715;
+--blue:#d3e5ef;--blueT:#183347;--pur:#e8deee;--purT:#412454;--gray:#e3e2e0;--grayT:#32302c;--org:#fadec9;--orgT:#49290e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.5 Inter,system-ui,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:40px 24px 80px}
+.icon{font-size:54px;line-height:1}
+h1{font-size:34px;font-weight:700;margin:10px 0 6px}
+.lead{color:var(--mute);max-width:760px;margin:0 0 22px}
+.views{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:10px;overflow-x:auto}
+.views button{border:0;background:none;padding:8px 10px;font:inherit;color:var(--mute);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap}
+.views button.on{color:var(--fg);border-color:var(--fg);font-weight:500}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+.bar input,.bar select{font:inherit;border:1px solid var(--line);border-radius:6px;padding:6px 10px;background:#fff;color:var(--fg)}
+.bar input{flex:1;min-width:180px}
+.count{color:var(--mute);font-size:13px;margin-left:auto}
+.tablebox{overflow-x:auto;border-top:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;min-width:980px}
+th{font-weight:500;color:var(--mute);text-align:left;font-size:13px;padding:7px 8px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);white-space:nowrap}
+td{padding:7px 8px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);vertical-align:top}
+th:last-child,td:last-child{border-right:0}
+tbody tr{cursor:pointer}
+tbody tr:hover{background:var(--hover)}
+td.name{font-weight:500}
+td.name span{border-bottom:1px solid #d3d3d0}
+.tag{display:inline-block;padding:0 6px;border-radius:3px;font-size:12.5px;margin:0 3px 3px 0;white-space:nowrap}
+.g{background:var(--green);color:var(--greenT)}.y{background:var(--yel);color:var(--yelT)}.r{background:var(--red);color:var(--redT)}
+.b{background:var(--blue);color:var(--blueT)}.p{background:var(--pur);color:var(--purT)}.n{background:var(--gray);color:var(--grayT)}.o{background:var(--org);color:var(--orgT)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.board{display:grid;grid-template-columns:repeat(3,minmax(240px,1fr));gap:14px;overflow-x:auto}
+.col h3{font-size:13px;font-weight:500;margin:4px 0 8px}
+.card{border:1px solid var(--line);border-radius:6px;padding:10px;margin-bottom:8px;cursor:pointer;background:#fff;box-shadow:0 1px 2px rgba(15,15,15,.04)}
+.card:hover{background:var(--hover)}
+.card b{display:block;font-weight:500;margin-bottom:4px}
+.card small{color:var(--mute)}
+.panel{position:fixed;top:0;right:0;height:100%;width:min(620px,100%);background:#fff;box-shadow:-10px 0 30px rgba(15,15,15,.12);transform:translateX(105%);transition:transform .2s;overflow-y:auto;z-index:10}
+.panel.on{transform:none}
+.panel .in{padding:28px 32px 60px}
+.close{float:right;border:0;background:var(--hover);border-radius:6px;padding:4px 10px;cursor:pointer;font:inherit}
+.panel h2{font-size:26px;margin:8px 0 14px}
+.props{display:grid;grid-template-columns:170px 1fr;gap:6px 10px;font-size:13.5px;margin-bottom:18px}
+.props div:nth-child(odd){color:var(--mute)}
+.panel h4{font-size:15px;margin:22px 0 8px}
+.callout{background:var(--side);border:1px solid var(--line);border-radius:6px;padding:12px 14px;white-space:pre-wrap;font-size:13.5px}
+.todo label{display:block;margin:3px 0}
+.foot{margin-top:40px;color:var(--mute);font-size:12.5px;border-top:1px solid var(--line);padding-top:14px}
+.shade{position:fixed;inset:0;background:rgba(15,15,15,.25);display:none;z-index:9}.shade.on{display:block}
+@media (max-width:640px){.wrap{padding:24px 16px 60px}h1{font-size:26px}.props{grid-template-columns:120px 1fr}.panel .in{padding:20px 16px 50px}.board{grid-template-columns:repeat(3,260px)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="icon">⚽</div>
+  <h1>Тренировочные сборы: каталог предложений</h1>
+  <p class="lead">Пример базы в стиле Notion для компании, которая организует сборы под ключ. Каждая строка это объект: проживание, тренировочная база, расстояние до поля, питание, аэропорт, цена и дата последней проверки. Нажмите на строку, чтобы открыть карточку с описанием для сайта и шаблоном запроса в отель.</p>
+
+  <div class="views" role="tablist">
+    <button class="on" data-v="table">📋 Все предложения</button>
+    <button data-v="board">🗂 По статусу проверки</button>
+    <button data-v="stale">⏰ Нужно обновить</button>
+  </div>
+
+  <div class="bar">
+    <input id="q" type="search" placeholder="Поиск: город, объект, вид спорта">
+    <select id="fs"><option value="">Вид спорта: все</option></select>
+    <select id="fc"><option value="">Страна: все</option></select>
+    <select id="fm"><option value="">Питание: любое</option><option>Полный пансион</option><option>Полупансион</option><option>Завтрак</option></select>
+    <span class="count" id="count"></span>
+  </div>
+
+  <div id="view"></div>
+
+  <div class="foot">Демо-пример для портфолио. Объекты, цены и даты вымышлены и не предназначены для бронирования. Аэропорты и города реальные.</div>
+</div>
+
+<div class="shade" id="shade"></div>
+<aside class="panel" id="panel" aria-hidden="true"><div class="in" id="pin"></div></aside>
+
+<script>
+const TODAY = new Date('2026-11-03');
+const D = [
+ {n:'Sport Resort Belek', c:'Турция', city:'Белек', sp:['Футбол','Лёгкая атлетика'], base:'3 поля (натур. газон), стадион 400 м', dist:0.3, meal:'Полный пансион', ap:'AYT, 35 км', season:'Ноя–Апр', price:62, st:'Проверено', chk:'2026-10-28', team:'до 60 чел.'},
+ {n:'Side Football Village', c:'Турция', city:'Сиде', sp:['Футбол'], base:'2 поля + зал 600 м²', dist:1.2, meal:'Полный пансион', ap:'AYT, 65 км', season:'Янв–Мар', price:48, st:'Ждём ответ', chk:'2026-10-30', team:'до 40 чел.'},
+ {n:'Marbella Athletics Hub', c:'Испания', city:'Марбелья', sp:['Лёгкая атлетика','Триатлон'], base:'Стадион 8 дорожек, бассейн 50 м', dist:2.5, meal:'Полупансион', ap:'AGP, 50 км', season:'Круглый год', price:85, st:'Проверено', chk:'2026-10-21', team:'до 35 чел.'},
+ {n:'Salou Aqua Center', c:'Испания', city:'Салоу', sp:['Плавание'], base:'Бассейн 50 м, 10 дорожек', dist:0.8, meal:'Полный пансион', ap:'REU, 12 км', season:'Мар–Окт', price:70, st:'Устарело', chk:'2026-08-14', team:'до 50 чел.'},
+ {n:'Algarve Pro Camp', c:'Португалия', city:'Албуфейра', sp:['Футбол'], base:'4 поля, тренажёрный зал', dist:0.5, meal:'Полный пансион', ap:'FAO, 40 км', season:'Ноя–Мар', price:78, st:'Проверено', chk:'2026-10-25', team:'до 70 чел.'},
+ {n:'Limassol Swim & Run', c:'Кипр', city:'Лимассол', sp:['Плавание','Лёгкая атлетика'], base:'Бассейн 50 м + стадион', dist:3.0, meal:'Полупансион', ap:'LCA, 65 км', season:'Фев–Май', price:66, st:'Ждём ответ', chk:'2026-10-31', team:'до 30 чел.'},
+ {n:'Lignano Sport Park', c:'Италия', city:'Линьяно', sp:['Футбол','Плавание','Волейбол'], base:'Поля, бассейн 50 м, 3 зала', dist:0.2, meal:'Полный пансион', ap:'VCE, 85 км', season:'Апр–Сен', price:58, st:'Проверено', chk:'2026-10-19', team:'до 120 чел.'},
+ {n:'Pula Team Base', c:'Хорватия', city:'Пула', sp:['Футбол','Гандбол'], base:'2 поля + зал', dist:1.8, meal:'Завтрак', ap:'PUY, 8 км', season:'Мар–Июн', price:44, st:'Устарело', chk:'2026-07-30', team:'до 45 чел.'},
+ {n:'Tenerife Altitude Camp', c:'Испания', city:'Тенерифе', sp:['Лёгкая атлетика','Велоспорт'], base:'Стадион, горные маршруты', dist:4.5, meal:'Полупансион', ap:'TFS, 25 км', season:'Круглый год', price:91, st:'Ждём ответ', chk:'2026-10-29', team:'до 25 чел.'},
+ {n:'Antalya Volley Arena', c:'Турция', city:'Анталья', sp:['Волейбол','Баскетбол'], base:'2 зала, пляжные корты', dist:0.4, meal:'Полный пансион', ap:'AYT, 15 км', season:'Ноя–Апр', price:55, st:'Проверено', chk:'2026-10-27', team:'до 50 чел.'}
+];
+const spC={'Футбол':'g','Лёгкая атлетика':'o','Плавание':'b','Триатлон':'p','Волейбол':'y','Гандбол':'r','Баскетбол':'o','Велоспорт':'n'};
+const stC={'Проверено':'g','Ждём ответ':'y','Устарело':'r'};
+const days=d=>Math.round((TODAY-new Date(d))/864e5);
+const fmt=d=>new Date(d).toLocaleDateString('ru-RU',{day:'numeric',month:'short'});
+const esc=s=>String(s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+let view='table';
+
+[...new Set(D.flatMap(x=>x.sp))].sort().forEach(s=>fs.add(new Option(s,s)));
+[...new Set(D.map(x=>x.c))].sort().forEach(s=>fc.add(new Option(s,s)));
+
+function rows(){
+  const t=q.value.trim().toLowerCase();
+  return D.map((x,i)=>({...x,i})).filter(x=>
+    (!t||[x.n,x.city,x.c,x.base,...x.sp].join(' ').toLowerCase().includes(t))&&
+    (!fs.value||x.sp.includes(fs.value))&&(!fc.value||x.c===fc.value)&&(!fm.value||x.meal===fm.value)&&
+    (view!=='stale'||x.st==='Устарело'||days(x.chk)>30));
+}
+const tags=x=>x.sp.map(s=>`<span class="tag ${spC[s]||'n'}">${s}</span>`).join('');
+function render(){
+  const r=rows(); count.textContent=r.length+' из '+D.length;
+  if(view==='board'){
+    view_.innerHTML='<div class="board">'+['Проверено','Ждём ответ','Устарело'].map(s=>`<div class="col"><h3><span class="tag ${stC[s]}">${s}</span> ${r.filter(x=>x.st===s).length}</h3>`+
+      r.filter(x=>x.st===s).map(x=>`<div class="card" data-i="${x.i}"><b>${esc(x.n)}</b>${tags(x)}<br><small>${x.city}, ${x.c} · от €${x.price}/ночь</small></div>`).join('')+'</div>').join('')+'</div>';
+  } else {
+    view_.innerHTML=`<div class="tablebox"><table><thead><tr><th>Aa Объект</th><th>Страна</th><th>Вид спорта</th><th>База</th><th class="num">До тренировки</th><th>Питание</th><th>Аэропорт</th><th class="num">Цена от</th><th>Статус</th><th>Проверено</th></tr></thead><tbody>`+
+      r.map(x=>`<tr data-i="${x.i}"><td class="name"><span>${esc(x.n)}</span></td><td>${x.city}, ${x.c}</td><td>${tags(x)}</td><td>${esc(x.base)}</td><td class="num">${x.dist} км</td><td><span class="tag n">${x.meal}</span></td><td>${x.ap}</td><td class="num">€${x.price}</td><td><span class="tag ${stC[x.st]}">${x.st}</span></td><td class="num">${fmt(x.chk)}${days(x.chk)>30?' ⚠️':''}</td></tr>`).join('')+
+      (r.length?'':`<tr><td colspan="10" style="color:var(--mute)">Ничего не найдено</td></tr>`)+'</tbody></table></div>';
+  }
+}
+const view_=document.getElementById('view');
+
+function open_(i){
+  const x=D[i];
+  pin.innerHTML=`<button class="close" id="cl">Закрыть</button><div style="font-size:34px">🏟</div><h2>${esc(x.n)}</h2>
+  <div class="props">
+   <div>Город</div><div>${x.city}, ${x.c}</div><div>Вид спорта</div><div>${tags(x)}</div>
+   <div>Тренировочная база</div><div>${esc(x.base)}</div><div>От проживания до тренировки</div><div>${x.dist} км</div>
+   <div>Питание</div><div>${x.meal}</div><div>Аэропорт</div><div>${x.ap}</div><div>Вместимость</div><div>${x.team}</div>
+   <div>Сезон</div><div>${x.season}</div><div>Цена от</div><div>€${x.price} / чел. / ночь</div>
+   <div>Статус</div><div><span class="tag ${stC[x.st]}">${x.st}</span> · ${fmt(x.chk)}</div></div>
+  <h4>Текст для сайта</h4>
+  <div class="callout">${x.city}: сборы по направлению ${x.sp.join(', ').toLowerCase()} для клубов и сборных. Проживание и тренировки рядом, ${x.dist<1?'до поля можно дойти пешком':'до базы '+x.dist+' км, трансфер включён'}. ${x.base}. ${x.meal}, меню можно согласовать с тренером. Подходит для групп ${x.team}. Сезон: ${x.season}.
+
+В пакет входит: проживание, тренировочное время на базе, питание, трансфер из аэропорта ${x.ap.split(',')[0]} и сопровождение менеджера.</div>
+  <h4>Пост для соцсетей</h4>
+  <div class="callout">🏟 Новое направление: ${x.city} (${x.c})
+${x.base}, до тренировки ${x.dist} км.
+Сезон ${x.season}, от €${x.price} в сутки на человека.
+Напишите нам, подберём даты под ваш календарь.</div>
+  <h4>Запрос в отель (EN)</h4>
+  <div class="callout">Subject: Training camp request, ${x.city}, team of 30
+
+Hello,
+We organise training camps for European sports clubs. Could you please confirm for March 2027:
+1. Availability for 30 people, 7 nights, full board
+2. Training slots per day and surface type
+3. Distance and transfer from the hotel to the training site
+4. Group price per person per night and payment terms
+
+Thank you, looking forward to your reply.</div>
+  <h4>Чек-лист проверки</h4>
+  <div class="todo"><label><input type="checkbox" checked> Цена подтверждена письмом</label><label><input type="checkbox" ${x.st==='Проверено'?'checked':''}> Фото базы обновлены</label><label><input type="checkbox" ${x.st==='Проверено'?'checked':''}> Карточка на сайте совпадает с базой</label><label><input type="checkbox"> Перелёты на сезон добавлены</label></div>`;
+  panel.classList.add('on');shade.classList.add('on');panel.setAttribute('aria-hidden','false');
+  document.getElementById('cl').onclick=close_;
+}
+function close_(){panel.classList.remove('on');shade.classList.remove('on');panel.setAttribute('aria-hidden','true')}
+shade.onclick=close_;document.addEventListener('keydown',e=>e.key==='Escape'&&close_());
+view_.addEventListener('click',e=>{const el=e.target.closest('[data-i]');if(el)open_(+el.dataset.i)});
+[q,fs,fc,fm].forEach(el=>el.addEventListener('input',render));
+document.querySelectorAll('.views button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.views button').forEach(x=>x.classList.remove('on'));b.classList.add('on');view=b.dataset.v;render()});
+render();
+</script>
+</body>
+</html>
